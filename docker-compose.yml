@@ -1,0 +1,25 @@
+version: '2'
+services:
+<<<<<<< HEAD
+ todolist:
+   container_name: todolist
+   image: todolist
+   build: .
+   # restart: always
+   env_file: .env
+   command: sh -c "flask db upgrade && gunicorn todolist:app -w 2 -b :8000"
+=======
+  todolist:
+    container_name: todolist
+    image: registry.gitlab.com/fast-cloudcomputing/19i-2140
+    # restart: always
+    env_file: .env
+    command: gunicorn todolist:app -w 2 -b :8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+>>>>>>> update/docker-compose-image-name
+
+   ports:
+     - "8000:8000"
